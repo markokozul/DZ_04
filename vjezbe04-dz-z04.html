@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Varijable</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const polje = new Array(1, 2, 3, 4, 7, 8, 5, 6, 9, 55, 12, 4, 85);
+      (function ArrayManipulationAndLogging() {
+        console.log(polje.length);
+        console.log(polje.sort((a, b) => b - a));
+        console.log(polje.sort((a, b) => a - b));
+        polje.pop();
+        console.log(polje);
+        polje.push(19, 22);
+        console.log(polje);
+        const polje2 = ['Banana', 'Orange', 'Apple', 'Mango'];
+        const polje_final = polje.concat(polje2);
+        console.log(polje_final);
+      })();
+    </script>
+  </body>
+</html>

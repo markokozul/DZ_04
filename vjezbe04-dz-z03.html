@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Varijable</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      for (let i = 1; i <= 1000; i++) {
+        let br = 0;
+        for (let j = 2; j < i; j++) {
+          if (i % j === 0) {
+            br++;
+          }
+        }
+        if (br === 0) {
+          console.log(`prost broj - ${i}`);
+          document.write(`prost broj - ${i}<br/>`);
+        }
+      }
+    </script>
+  </body>
+</html>

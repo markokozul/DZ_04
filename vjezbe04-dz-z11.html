@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Varijable</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const tempDay = [
+        '2023-11-29',
+        -1,
+        0,
+        -0.5,
+        0.5,
+        0,
+        1.2,
+        1.8,
+        2,
+        3,
+        4,
+        6,
+        9,
+        12,
+        7,
+        6,
+        6,
+        8,
+        5,
+        4,
+        2,
+        3,
+        2,
+        1,
+        0,
+      ];
+
+      const logTemps = () => {
+        const numbers = tempDay.filter((item) => !isNaN(item));
+        const min = Math.min(...numbers);
+        const max = Math.max(...numbers);
+        let sum = 0;
+        numbers.forEach((item) => {
+          sum += item;
+        });
+        const avg = sum / numbers.length;
+        console.log(
+          'datum: ' + tempDay[0] + ',',
+          'min: ' + min + ',',
+          'max: ' + max + ',',
+          'average: ' + avg
+        );
+      };
+      logTemps();
+    </script>
+  </body>
+</html>
