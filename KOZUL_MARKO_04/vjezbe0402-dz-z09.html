@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style></style>
+  </head>
+
+  <body>
+    <img id="btn" src="off-removebg-preview.png" data-on-off="off" />
+    <img id="light" src="zarulja_off_2.png" data-on-off="off" />
+    <script>
+      const btn = document.querySelector('#btn');
+      const light = document.querySelector('#light');
+
+      const changeBackgrounds = () => {
+        if (btn.dataset.onOff == 'off' && light.dataset.onOff == 'off') {
+          btn.src = 'on-removebg-preview.png';
+          light.src = 'zarulja_on_2.png';
+          btn.dataset.onOff = 'on';
+          light.dataset.onOff = 'on';
+        } else {
+          btn.src = 'off-removebg-preview.png';
+          light.src = 'zarulja_off_2.png';
+          btn.dataset.onOff = 'off';
+          light.dataset.onOff = 'off';
+        }
+      };
+
+      btn.addEventListener('click', changeBackgrounds);
+    </script>
+  </body>
+</html>

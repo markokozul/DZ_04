@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <button id="btn">Promijeni pozadinu</button>
+    <p id="color"></p>
+
+    <script>
+      const btn = document.getElementById('btn');
+      const colorTxt = document.getElementById('color');
+      const writeToHTML = (currentColor) => {
+        colorTxt.innerHTML = `Boja: ${currentColor}`;
+      };
+      const getRandomColor = () => {
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        const hexRandomColor = `#${randomColor}`;
+        return hexRandomColor;
+      };
+      const setBodyColor = () => {
+        const randomColor = getRandomColor();
+        document.body.style.backgroundColor = randomColor;
+        writeToHTML(randomColor);
+      };
+
+      btn.addEventListener('click', setBodyColor);
+    </script>
+  </body>
+</html>

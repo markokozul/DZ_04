@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style></style>
+  </head>
+
+  <body>
+    <p><a href="#" id="btn">Kliknite ovdje da dodate novi paragraf tekst</a></p>
+    <p id="thisLocation">Novi paragrafi teksta će se pojaviti ispod</p>
+    <p>Ovo je defaultn-ni prvi paragraf teksta</p>
+
+    <script>
+      const btn = document.querySelector('#btn');
+
+      btn.addEventListener('click', () => {
+        const newTxt = document.createElement('p');
+        newTxt.innerHTML = 'Novi Paragraf';
+        document.body.append(newTxt);
+      });
+    </script>
+  </body>
+</html>

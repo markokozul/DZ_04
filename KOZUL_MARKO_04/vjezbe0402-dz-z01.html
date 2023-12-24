@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <p id="arithmetic"></p>
+    <p id="geometric"></p>
+
+    <script>
+      const arithmeticMiddleTxt = document.getElementById('arithmetic');
+      const geometricMiddleTxt = document.getElementById('geometric');
+
+      let input = prompt('Unesite niz brojeva,svaki broj odvojite zarezom');
+      let arr = input.split(',');
+      const parseToInt = (array) => {
+        let parsedArray = [];
+        array.forEach((element) => {
+          parsedArray.push(parseInt(element));
+        });
+        return parsedArray;
+      };
+
+      const parsedArray = parseToInt(arr);
+
+      const findArithmeticMiddle = (array) => {
+        let sum = 0;
+        array.forEach((element) => {
+          sum = sum + element;
+        });
+
+        return sum / array.length;
+      };
+
+      const findGeometricMiddle = (array) => {
+        let product = 1;
+        array.forEach((element) => {
+          product = product * element;
+        });
+        return Math.pow(product, 1 / array.length);
+      };
+      const writeToHTML = (arithmetic, geometric) => {
+        arithmeticMiddleTxt.innerHTML = `Aritmeticka sredina niza je : ${arithmetic}`;
+        geometricMiddleTxt.innerHTML = `Geometrijska sredina niza je : ${geometric}`;
+      };
+
+      const arithmeticMiddle = findArithmeticMiddle(parsedArray);
+      const geometricMiddle = findGeometricMiddle(parsedArray);
+      writeToHTML(arithmeticMiddle, geometricMiddle);
+    </script>
+  </body>
+</html>

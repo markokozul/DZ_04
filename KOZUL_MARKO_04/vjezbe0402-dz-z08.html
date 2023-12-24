@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 150px;
+      }
+      input["text"] {
+        width: 100px;
+        height: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <label>
+        operand1
+        <input id="num1" type="number" />
+      </label>
+      <label>
+        operand2
+
+        <input id="num2" type="number" />
+      </label>
+      <label>
+        <input type="button" class="button" value="+" />
+        <input type="button" class="button" value="-" />
+        <input type="button" class="button" value="*" />
+        <input type="button" class="button" value="/" />
+      </label>
+
+      <label>
+        <input type="button" class="button" value="sin" />
+        <input type="button" class="button" value="cos" />
+        <input type="button" class="button" value="tan" />
+      </label>
+
+      <label>
+        <input type="button" class="button" value="ln" />
+        <input type="button" class="button" value="log" />
+      </label>
+
+      <label>
+        <input type="button" class="button" value="^2" />
+        <input type="button" class="button" value="^3" />
+        <input type="button" class="button" value="^n" />
+      </label>
+
+      <input type="submit" value="Izracunaj" />
+    </form>
+
+    <script>
+      const form = document.querySelector('form');
+      const num1 = document.querySelector('#num1');
+      const num2 = document.querySelector('#num2');
+      const buttons = document.querySelectorAll('.button');
+      let operation = undefined;
+
+      const calculate = (num1, num2, operation) => {
+        switch (operation) {
+          case '+':
+            return num1 + num2;
+          case '-':
+            return num1 - num2;
+
+          case '*':
+            return num1 * num2;
+
+          case '/':
+            return num1 / num2;
+
+          case 'sin':
+            return Math.sin(num1);
+          case 'cos':
+            return Math.cos(num1);
+          case 'tan':
+            return Math.tan(num1);
+          case 'ln':
+            return Math.log(num1);
+          case 'log':
+            return Math.log10(num1);
+          case '^2':
+            return num1 * num1;
+          case '^3':
+            return num1 * num1 * num1;
+          case '^n':
+            let base = num1;
+            for (let i = 0; i < num2 - 1; i++) {
+              base = base * num1;
+            }
+            return base;
+          default:
+            break;
+        }
+      };
+      const setOperation = (operationValue) => {
+        operation = operationValue;
+      };
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert(calculate(parseInt(num1.value), parseInt(num2.value), operation));
+      });
+
+      buttons.forEach((element) => {
+        element.addEventListener('click', () => {
+          setOperation(element.value);
+        });
+      });
+    </script>
+  </body>
+</html>
